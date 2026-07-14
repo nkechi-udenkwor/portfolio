@@ -82,7 +82,7 @@ export default function Home() {
             <ul className='flex flex-wrap gap-x-6 gap-y-3'>
               {site.links.map((link) => (
                 <li key={link.label}>
-                  <Link
+                  <a
                     href={link.href}
                     target={isMailto(link.href) ? undefined : '_blank'}
                     rel={
@@ -91,7 +91,7 @@ export default function Home() {
                     className='text-sm text-muted underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent'
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

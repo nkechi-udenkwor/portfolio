@@ -39,7 +39,7 @@ export const site = {
   links: [
     { label: 'GitHub', href: 'https://github.com/nkechi-udenkwor' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nkechi-udenkwor/' },
-    { label: 'Email', href: 'udenkwornkechi@gmail.com' },
+    { label: 'Email', href: 'mailto:udenkwornkechi@gmail.com' },
     // { label: 'Twitter', href: 'https://x.com/Nkechi_belle' },
   ],
   footerNote: 'Always learning, always building',
