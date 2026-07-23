@@ -4,7 +4,7 @@ export const site = {
   // location: 'City, Country',
   // Set to false to hide the availability indicator.
   bio: [
-    'I build thoughtful digital products that make complex problems feel simple. I focus on creating intuitive, performant, and maintainable experiences that people enjoy using.',
+    'I build thoughtful digital products that make complex problems feel simple. I focus on creating intuitive, reliable, and maintainable experiences that people enjoy using.',
   ],
   projects: [
     {
