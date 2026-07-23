@@ -1,24 +1,26 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect, useRef } from 'react';
 
 function lerp(start: number, end: number, factor: number) {
   return start + (end - start) * factor;
 }
 
 export function CursorGlow() {
+  const glowRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
+      '(prefers-reduced-motion: reduce)',
     ).matches;
     const touchDevice = window.matchMedia(
-      "(hover: none) and (pointer: coarse)",
+      '(hover: none) and (pointer: coarse)',
     ).matches;
 
-    if (reducedMotion || touchDevice) return;
+    const el = glowRef.current;
+    if (!el || reducedMotion || touchDevice) return;
 
-    const root = document.documentElement;
-    root.classList.add("cursor-glow-active");
+    el.dataset.active = 'true';
 
     let targetX = window.innerWidth / 2;
     let targetY = window.innerHeight / 2;
@@ -34,20 +36,30 @@ export function CursorGlow() {
     const animate = () => {
       currentX = lerp(currentX, targetX, 0.06);
       currentY = lerp(currentY, targetY, 0.06);
-      root.style.setProperty("--mouse-x", `${currentX}px`);
-      root.style.setProperty("--mouse-y", `${currentY}px`);
+      el.style.setProperty('--glow-x', `${currentX}px`);
+      el.style.setProperty('--glow-y', `${currentY}px`);
       rafId = requestAnimationFrame(animate);
     };
 
-    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener('mousemove', onMove, { passive: true });
     rafId = requestAnimationFrame(animate);
 
     return () => {
-      root.classList.remove("cursor-glow-active");
-      window.removeEventListener("mousemove", onMove);
+      el.dataset.active = 'false';
+      window.removeEventListener('mousemove', onMove);
       cancelAnimationFrame(rafId);
     };
   }, []);
 
-  return null;
+  return (
+    <div
+      ref={glowRef}
+      aria-hidden
+      className='cursor-glow pointer-events-none fixed inset-0 opacity-0 transition-opacity duration-500 data-[active=true]:opacity-100'
+      style={{
+        background:
+          'radial-gradient(circle 40vmax at var(--glow-x, 50%) var(--glow-y, 50%), rgba(45, 212, 191, 0.06), rgba(45, 212, 191, 0.025) 35%, transparent 75%)',
+      }}
+    />
+  );
 }

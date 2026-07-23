@@ -8,13 +8,6 @@ export const site = {
   ],
   projects: [
     {
-      title: 'MoodScribe',
-      description:
-        'A mindful journaling app that helps users track moods, reflect, and build healthier habits.',
-      href: 'https://moodscribe.netlify.app/',
-      year: '2024',
-    },
-    {
       title: 'Testamplify',
       description:
         'Learning platform with user and admin dashboards, real-time support chat, and course management.',
@@ -22,11 +15,25 @@ export const site = {
       year: '2026',
     },
     {
+      title: 'MoodScribe',
+      description:
+        'A mindful journaling app that helps users track moods, reflect, and build healthier habits.',
+      href: 'https://moodscribe.netlify.app/',
+      year: '2024',
+    },
+    {
       title: 'Skila AI',
       description:
         'AI-powered learning platform featuring tutoring, messaging, and interactive study experiences.',
       href: 'https://skilaai.com/',
       year: '2026',
+    },
+    {
+      title: 'Mini Rides',
+      description:
+        'A testing application within the Testamplify ecosystem, built with responsive interfaces and reusable components.',
+      href: 'https://skilaai.com/',
+      year: '2025',
     },
     {
       title: 'Trevone Cleaners',

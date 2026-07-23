@@ -30,8 +30,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full bg-background antialiased`}
     >
       <body className='relative min-h-full'>
-        {children}
         <CursorGlow />
+        <div className='relative z-10'>{children}</div>
       </body>
     </html>
   );

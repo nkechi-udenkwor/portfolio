@@ -32,18 +32,9 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-html.cursor-glow-active body {
-  background-image: radial-gradient(
-    50vmax circle at var(--mouse-x, 40%) var(--mouse-y, 40%),
-    color-mix(in srgb, var(--accent) 6%, transparent) 0%,
-    color-mix(in srgb, var(--accent) 2.5%, transparent) 35%,
-    transparent 75%
-  );
-}
-
 @media (prefers-reduced-motion: reduce), (hover: none) and (pointer: coarse) {
-  html.cursor-glow-active body {
-    background-image: none;
+  .cursor-glow {
+    display: none !important;
   }
 }
 
