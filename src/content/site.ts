@@ -32,7 +32,7 @@ export const site = {
       title: 'Mini Rides',
       description:
         'A testing application within the Testamplify ecosystem, built with responsive interfaces and reusable components.',
-      href: 'https://skilaai.com/',
+      href: 'https://mini-rides.testamplify.com/',
       year: '2025',
     },
     {
